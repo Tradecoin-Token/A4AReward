@@ -12,6 +12,17 @@
             box-shadow:none !important;
             outline:none !important;
         }
+        
+        a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+        
     </style>
 </head>
 <body>
@@ -291,7 +302,7 @@
                 output += '</div>';
 
                 output += '<div class="text-center pt-3"><button class="btn btn-success px-5 py-3" onclick="exportTableToCSV(\'download.csv\');">Download As Excel</button></div>';
-                output += '<div class="text-center pt-3"><button class="btn btn-success px-5 py-3" onclick="exportTableToCSV(\'download.json\');">Download As Json</button></div>';
+                output += '<div class="text-center pt-3"><a href="https://csvjson.com/csv2json">Upload download.csv To Convert to Json Online</button></div></a>';
                 
             }else{
                 output = '<h4 class="text-center mt-4">Opps!! No Result was found.</h4>';
@@ -341,8 +352,6 @@
         	document.querySelector("#total").innerHTML = "Estimated Reward Under "+Tier+" Tier: "+totalinterest+"$";		
         }
         
-        
-        
 		function exportTableToCSV(filename) {
 			var csv = [];
 			var rows = document.querySelectorAll("table tr");
@@ -354,7 +363,7 @@
 			}
 			downloadCSV(csv.join("\n"), filename);
 		}
-		
+        
 		function downloadCSV(csv, filename) {
 			var csvFile;
 			var downloadLink;
@@ -366,7 +375,10 @@
 			document.body.appendChild(downloadLink);
 			downloadLink.click();
 		}
+        
 
+        
+        
 
     </script>
 </body>
