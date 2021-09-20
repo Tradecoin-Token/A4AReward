@@ -56,6 +56,11 @@
                         <div class="card-body text-center h4 text-white" id="panel6"></div>
                     </div>
                 </div>                
+                <div class="col-md-3 col-12 mb-3">
+                    <div class="card py-3" style="background: #0dbaae;">
+                        <div class="card-body text-center h4 text-white" id="panel7"></div>
+                    </div>
+                </div>                
                 
                 
             </div>
@@ -118,7 +123,7 @@
             panel2Data = await panel2ResponseObject.json();
             document.getElementById("panel2").innerHTML = 'DApp Balance  in USDT<br>'+(panel2Data.balance/1000000).toFixed(2);
 
-            var panel3ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_A4A_Reserve_In_TN%3A");
+            var panel3ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Ballet_Reserve_In_TN%3A");
             panel3Data = await panel3ResponseObject.json();
             document.getElementById("panel3").innerHTML = 'Total Collateral on DApp<br>'+panel3Data.value/100000000+' TN';
 
@@ -136,6 +141,12 @@
             panel6Data = await panel6ResponseObject.json();
             document.getElementById("panel6").innerHTML = 'TN:A4A Backup Ratio<br>'+(panel6Data.value/100000).toFixed(0)+":1";
             BackupValueA4A = panel6Data.value;
+            
+            var panel7ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_USDT_Claimed%3A");
+            panel7Data = await panel7ResponseObject.json();
+            document.getElementById("panel7").innerHTML = 'Total Claimed:<br>'+(panel7Data.value).toFixed(0)+" USDT";
+            USDTClaimeValueA4A = panel7Data.value;
+
             
             loading.remove();
             mainArea.classList.remove('d-none');
