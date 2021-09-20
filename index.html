@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A4A Airdrop DApp Statistics</title>
+    <title>A4A DApp Statistics</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <style>
         .no-focus:focus{
@@ -284,7 +284,12 @@
         	const TotalLockBlocks = 1440*days
             const blockinterest = 0.000000072;
             
-            if(amount >0 && amount <=5999.99999999)
+            if(amount>=0 && amount <=999.99999999)
+            {
+            alert("Please Enter Amount in Between 1000-12000 Only.");
+            }
+            
+            if(amount >=1000 && amount <=5999.99999999)
             {
         	perblockinterest = (blockinterest).toFixed(11);
             Tier ="Silver"
@@ -304,8 +309,7 @@
             
             if(amount >12000)
             {
-        	interest = 0.00341666*TotalLockBlocks;
-        	Tier = "Diamond"
+        	alert("Plese Enter Amount in Between 1000-12000 Only.");
             }            
             
             
