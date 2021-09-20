@@ -181,6 +181,9 @@
                     if(item.key.includes('Total_Lock_Blocks')){
                         searchResult[thisIndex].TotalLockBlocks = item.value;
                     }
+                    if(item.key.includes('Tier_Of')){
+                        searchResult[thisIndex].Tier = item.value;
+                    }
                 }
             });
 
@@ -221,6 +224,7 @@
                 output += '<th>Maturity Amount</th>';
                 output += '<th>Locking Status</th>';
                 output += '<th>Mature Height</th>';
+                output += '<th>Tier Indicator</th>';
                 output += '<th>Maturity Indicator</th>';
 				output += '<th>Balance Hours</th>';
                 output += '</tr>';
@@ -255,6 +259,12 @@
                     }else{
                         output += '<td>'+searchResult[index].TotalLockBlocks+'</td>';
                     }
+                    if(searchResult[index].Tier === undefined || String(searchResult[index].Tier).length < 1){
+                        output += '<td>N&#47;A</td>';
+                    }else{
+                        output += '<td>'+searchResult[index].Tier+'</td>';
+                    }
+                    
                     var Indicator = parseInt(searchResult[index].TotalLockBlocks - blockHeight);
                     output += '<td>';
                         if(Indicator > 0){
@@ -309,7 +319,7 @@
             
             if(amount >12000)
             {
-        	alert("Plese Enter Amount in Between 1000-12000 Only.");
+        	alert("Plese Enter Amount in Between 1000-12000.");
             }            
             
             
