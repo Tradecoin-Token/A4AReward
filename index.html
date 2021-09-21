@@ -134,7 +134,7 @@
             panel2Data = await panel2ResponseObject.json();
             document.getElementById("panel2").innerHTML = 'DApp Balance  in USDT<br>'+(panel2Data.balance/1000000).toFixed(2);
 
-            var panel3ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Ballet_Reserve_In_TN%3A");
+            var panel3ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_A4A_Reserve_In_TN%3A");
             panel3Data = await panel3ResponseObject.json();
             document.getElementById("panel3").innerHTML = 'Total Collateral on DApp<br>'+panel3Data.value/100000000+' TN';
 
