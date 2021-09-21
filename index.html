@@ -316,28 +316,34 @@
         	const days = document.querySelector("#days").value;
         	const oneday = 1440
         	const TotalLockBlocks = 1440*days
-            const blockinterest = 0.000000072;
+            const blockinterest = 0.000000036;
             
-            if(amount>=0 && amount <=999.99999999)
+            if(amount>=0 && amount <=332.99999999)
             {
-            alert("Please Enter Amount in Between 1000-12000 Only.");
+            alert("Please Enter Amount in Between 333-12000 Only.");
+            }
+            
+            if(amount>=333 && amount <=999.99999999)
+            {
+        	perblockinterest = (blockinterest).toFixed(11);
+            Tier ="Bronze"
             }
             
             if(amount >=1000 && amount <=5999.99999999)
             {
-        	perblockinterest = (blockinterest).toFixed(11);
+        	perblockinterest = (blockinterest*2).toFixed(11);
             Tier ="Silver"
         	}
             
             if(amount >=6000 && amount <=11999.99999999)
             {
-        	perblockinterest = (blockinterest*2).toFixed(11);
+        	perblockinterest = (blockinterest*4).toFixed(11);
         	Tier = "Gold"
             }
 
             if(amount ==12000)
             {
-        	perblockinterest = (blockinterest*4).toFixed(11);
+        	perblockinterest = (blockinterest*8).toFixed(11);
         	Tier = "Diamond"
             }
             
