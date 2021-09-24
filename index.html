@@ -146,7 +146,8 @@
             output1 = results1.length;
             output2 = results2.length;
             output3 = results0.length;
-            document.getElementById("panel8").innerHTML = ' 💎 = '+(output3)+
+            document.getElementById("panel8").innerHTML = 'TIER Alloted <br>'+
+                                                          ' 💎 = '+(output3)+
                                                           '<br> 🥇 = '+(output2)+
                                                           '<br> 🥈 = '+(output1)+                                                          
                                                           '<br> 🥉 = '+(output0);
@@ -180,7 +181,7 @@
             
             var panel7ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_USDT_Claimed%3A");
             panel7Data = await panel7ResponseObject.json();
-            document.getElementById("panel7").innerHTML = 'Total Claimed:<br>'+(panel7Data.value).toFixed(0)+" USDT";
+            document.getElementById("panel7").innerHTML = 'Total Claimed<br>'+(panel7Data.value).toFixed(0)+" USDT";
             USDTClaimeValueA4A = panel7Data.value;
 
             
