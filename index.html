@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A4A DApp Statistics</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .no-focus:focus{
             box-shadow:none !important;
@@ -14,15 +15,13 @@
         }
         
         a:link, a:visited {
-  background-color: #f44336;
+
   color: white;
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-}
-
-        
+}        
     </style>
 </head>
 <body>
@@ -34,7 +33,7 @@
             <img src="logo.jpg" height="40px;">
             <h4 class="d-inline" style="vertical-align:middle;">A4A DApp Statistics</h4>
         </div>
-
+                    
         <div class="container-fluid mx-auto py-5 px-lg-5">
             <div class="row">
                 <div class="col-md-3 col-12 mb-3">
@@ -72,7 +71,11 @@
                         <div class="card-body text-center h4 text-white" id="panel7"></div>
                     </div>
                 </div>                
-                
+                <div class="col-md-3 col-12 mb-3">
+                    <div class="card py-3" style="background: #0dbaae;">
+                        <div class="card-body text-center h4 text-white" id="panel8"></div>
+                    </div>
+                </div>                                
                 
             </div>
         </div>
@@ -115,6 +118,7 @@
     </div>
     <script>
         const APIURL = "https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P";
+
         var loanData = '';
         var loading = document.getElementById("loading");
         var mainArea = document.getElementById("mainArea");
@@ -122,10 +126,31 @@
         var address = '';
         var sortRule = 0;
         var blockHeight;
+        
+        
         window.onload = async function(){
             var responseObject = await fetch(APIURL);
             loanData = await responseObject.json();
-
+         
+            const searchBronze = 'BRONZE';
+            const searchSilver = 'SILVER';
+            const searchGold = 'GOLD';
+            const searchDiamond = 'DIAMOND';
+            
+            var results0 = loanData.filter(entry => entry.value === `${searchBronze}`);
+            var results1 = loanData.filter(entry => entry.value === `${searchSilver}`);
+            var results2 = loanData.filter(entry => entry.value === `${searchGold}`);
+            var results3 = loanData.filter(entry => entry.value === `${searchDiamond}`);
+            
+            output0 = results0.length;
+            output1 = results1.length;
+            output2 = results2.length;
+            output3 = results0.length;
+            document.getElementById("panel8").innerHTML = ' 💎 = '+(output3)+
+                                                          '<br> 🥇 = '+(output2)+
+                                                          '<br> 🥈 = '+(output1)+                                                          
+                                                          '<br> 🥉 = '+(output0);
+                    
             var panel1ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Issued_A4A%3A");
             panel1Data = await panel1ResponseObject.json();
             document.getElementById("panel1").innerHTML = 'Total A4A Minted<br>'+(panel1Data.value/100000000).toFixed(8);
