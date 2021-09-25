@@ -65,12 +65,20 @@
                     <div class="card py-3" style="background: #0dbaae;">
                         <div class="card-body text-center h4 text-white" id="panel6"></div>
                     </div>
-                </div>                
+                </div>
+                
                 <div class="col-md-3 col-12 mb-3">
                     <div class="card py-3" style="background: #0dbaae;">
                         <div class="card-body text-center h4 text-white" id="panel7"></div>
                     </div>
+                </div>
+
+                <div class="col-md-3 col-12 mb-3">
+                    <div class="card py-3" style="background: #0dbaae;">
+                        <div class="card-body text-center h4 text-white" id="panel9"></div>
+                    </div>
                 </div>                
+                
                 <div class="col-md-3 col-12 mb-3">
                     <div class="card py-3" style="background: #0dbaae;">
                         <div class="card-body text-center h4 text-white" id="panel8"></div>
@@ -184,6 +192,12 @@
             panel7Data = await panel7ResponseObject.json();
             document.getElementById("panel7").innerHTML = 'Total Claimed<br>'+(panel7Data.value).toFixed(0)+" USDT";
             USDTClaimeValueA4A = panel7Data.value;
+            
+            var panel9ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Staked_Amount");
+            panel9Data = await panel9ResponseObject.json();
+            document.getElementById("panel9").innerHTML = 'Total Staked A4A<br>'+(panel9Data.value/100000000).toFixed(8);
+            StakedA4A = panel9Data.value;            
+            
 
             
             loading.remove();
@@ -233,6 +247,9 @@
                     if(item.key.includes('Tier_Of')){
                         searchResult[thisIndex].Tier = item.value;
                     }
+                    if(item.key.includes('Staked_Amount')){
+                        searchResult[thisIndex].Stake = item.value;
+                    }                    
                 }
             });
 
