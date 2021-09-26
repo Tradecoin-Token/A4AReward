@@ -190,7 +190,7 @@
             
             var panel7ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_USDT_Claimed%3A");
             panel7Data = await panel7ResponseObject.json();
-            document.getElementById("panel7").innerHTML = 'Total Claimed<br>'+(panel7Data.value).toFixed(0)+" USDT";
+            document.getElementById("panel7").innerHTML = 'Total Claimed<br>'+(panel7Data.value/1000000).toFixed(6)+" USDT";
             USDTClaimeValueA4A = panel7Data.value;
             
             var panel9ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Staked_Amount");
