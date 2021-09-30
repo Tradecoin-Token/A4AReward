@@ -168,7 +168,7 @@
 
             var panel0ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Issued_A4A%3A");
             panel1Data = await panel0ResponseObject.json();
-            document.getElementById("panel0").innerHTML = '&#128276; Balance A4A To Mint<br>'+(250000-(panel1Data.value/100000000)).toFixed(8)+' &#x26CF';
+            document.getElementById("panel0").innerHTML = '&#9203; Balance A4A To Mint<br>'+(250000-(panel1Data.value/100000000)).toFixed(8)+' &#x26CF';
                                                           
             var panel1ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Issued_A4A%3A");
             panel1Data = await panel1ResponseObject.json();
