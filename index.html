@@ -38,6 +38,11 @@
             <div class="row">
                 <div class="col-md-3 col-12 mb-3">
                     <div class="card py-3" style="background: #0dbaae;">
+                        <div class="card-body text-center h4 text-white" id="panel0"></div>
+                    </div>
+                </div>            
+                <div class="col-md-3 col-12 mb-3">
+                    <div class="card py-3" style="background: #0dbaae;">
                         <div class="card-body text-center h4 text-white" id="panel1"></div>
                     </div>
                 </div>
@@ -160,27 +165,31 @@
                                                           '<br> 🥇 = '+(output2)+
                                                           '<br> 🥈 = '+(output1)+                                                          
                                                           '<br> 🥉 = '+(output0);
-                    
+
+            var panel0ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Issued_A4A%3A");
+            panel1Data = await panel0ResponseObject.json();
+            document.getElementById("panel0").innerHTML = '&#128276; Balance A4A To Mint<br>'+(250000-(panel1Data.value/100000000)).toFixed(8)+' &#x26CF';
+                                                          
             var panel1ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Issued_A4A%3A");
             panel1Data = await panel1ResponseObject.json();
             document.getElementById("panel1").innerHTML = 'Total A4A Minted<br>'+(panel1Data.value/100000000).toFixed(8)+' &#x26CF';
 
             var panel2ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/assets/balance/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/7RB3BWayeCVPq3kkpkeJZAFv2DYCB5gEwnutEpRofaw4");
             panel2Data = await panel2ResponseObject.json();
-            document.getElementById("panel2").innerHTML = 'DApp Balance in USDT<br>'+(panel2Data.balance/1000000).toFixed(2);
+            document.getElementById("panel2").innerHTML = 'DApp Balance in USDT&#128178;<br>'+(panel2Data.balance/1000000).toFixed(2);
 
             var panel3ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_A4A_Reserve_In_TN%3A");
             panel3Data = await panel3ResponseObject.json();
-            document.getElementById("panel3").innerHTML = 'Total Collateral on DApp<br>'+panel3Data.value/100000000+' TN';
+            document.getElementById("panel3").innerHTML = 'Total Collateral &#128176;<br>'+panel3Data.value/100000000+' TN';
 
             var panel4ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/blocks/height");
             panel4Data = await panel4ResponseObject.json();
-            document.getElementById("panel4").innerHTML = 'Block Height<br>'+panel4Data.height;
+            document.getElementById("panel4").innerHTML = 'Block &#9939; Height<br>'+panel4Data.height;
             blockHeight = panel4Data.height;
             
             var panel5ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Burned_A4A:");
             panel5Data = await panel5ResponseObject.json();
-            document.getElementById("panel5").innerHTML = 'Total Liquidated A4A<br>'+(panel5Data.value/100000000).toFixed(8);
+            document.getElementById("panel5").innerHTML = 'Total Liquidated &#128167;A4A<br>'+(panel5Data.value/100000000).toFixed(8);
             LiquidatedA4A = panel5Data.value;
             
             var panel6ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/A4A_Backup_Value_In_TN:");
@@ -190,7 +199,7 @@
             
             var panel7ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_USDT_Claimed%3A");
             panel7Data = await panel7ResponseObject.json();
-            document.getElementById("panel7").innerHTML = 'Total Claimed<br>'+(panel7Data.value/1000000).toFixed(6)+" USDT";
+            document.getElementById("panel7").innerHTML = 'Total Claimed&#128178;<br>'+(panel7Data.value/1000000).toFixed(6)+" USDT";
             USDTClaimeValueA4A = panel7Data.value;
             
             var panel9ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Staked_Amount");
