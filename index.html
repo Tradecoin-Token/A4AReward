@@ -168,11 +168,11 @@
 
             var panel0ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Issued_A4A%3A");
             panel1Data = await panel0ResponseObject.json();
-            document.getElementById("panel0").innerHTML = '&#9203; Balance A4A To Mint<br>'+(250000-(panel1Data.value/100000000)).toFixed(8)+' &#x26CF';
+            document.getElementById("panel0").innerHTML = '&#9203; Balance A4A To Mint<br>'+(250000-(panel1Data.value/100000000)).toFixed(8)+' &#x26CF'+'<font color="Yellow"><sup>(+'+((((250000-(panel1Data.value/100000000)))/250000)*100).toFixed(2)+"%) </font></sup>";
                                                           
             var panel1ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_Issued_A4A%3A");
             panel1Data = await panel1ResponseObject.json();
-            document.getElementById("panel1").innerHTML = 'Total A4A Minted<br>'+(panel1Data.value/100000000).toFixed(8)+' &#x26CF';
+            document.getElementById("panel1").innerHTML = 'Total A4A Minted<br>'+(panel1Data.value/100000000).toFixed(8)+' &#x26CF'+'<font color="Yellow"><sup>(+'+((((panel1Data.value/100000000))/250000)*100).toFixed(2)+"%) </font></sup>";
 
             var panel2ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/assets/balance/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/7RB3BWayeCVPq3kkpkeJZAFv2DYCB5gEwnutEpRofaw4");
             panel2Data = await panel2ResponseObject.json();
