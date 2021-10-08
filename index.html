@@ -150,15 +150,28 @@
             const searchGold = 'GOLD';
             const searchDiamond = 'DIAMOND';
             
+            const searchAmount = 'Rewards_Of_3JcDUUX1bGTsamT8GqKnbvG3XrjLk7WhzHp'
+            
             var results0 = loanData.filter(entry => entry.value === `${searchBronze}`);
             var results1 = loanData.filter(entry => entry.value === `${searchSilver}`);
             var results2 = loanData.filter(entry => entry.value === `${searchGold}`);
             var results3 = loanData.filter(entry => entry.value === `${searchDiamond}`);
             
+            var results4 = loanData.filter(entry => entry.key.includes("Rewards_Of_")); 
+            console.log(results4);
+            
             output0 = results0.length;
             output1 = results1.length;
             output2 = results2.length;
             output3 = results3.length;
+            output4 = results4.length;
+            console.log(output4);
+            sumRewardAmount = 0;
+            for (i = 0; i < results4.length; i++) {  //loop through the array
+            sumRewardAmount += results4[i].value;  //Do the math!
+            }
+            console.log(sumRewardAmount);
+            
             sum =output0+output1+output2+output3;
             document.getElementById("panel8").innerHTML = sum+' TIER Alloted <br>'+
                                                           ' 💎 = '+(output3)+
@@ -176,7 +189,7 @@
 
             var panel2ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/assets/balance/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/7RB3BWayeCVPq3kkpkeJZAFv2DYCB5gEwnutEpRofaw4");
             panel2Data = await panel2ResponseObject.json();
-            document.getElementById("panel2").innerHTML = 'DApp Balance in USDT&#128178;<br>'+(panel2Data.balance/1000000).toFixed(2);
+            document.getElementById("panel2").innerHTML = 'DApp Balance in USDT&#128178;<br>'+(panel2Data.balance/1000000).toFixed(2)+"<br><sub>"+"Deficit: ("+((panel2Data.balance-sumRewardAmount)/1000000).toFixed(2).fontcolor("yellow")+")</sub>";
 
             var panel3ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_A4A_Reserve_In_TN%3A");
             panel3Data = await panel3ResponseObject.json();
@@ -214,6 +227,11 @@
             showData(loanData, sortRule);
         }
 
+        window.setTimeout(function () {
+  window.location.reload();
+}, 300000);
+        
+        
         function search(value){
             address = value.trim();
             showData(loanData, sortRule);
@@ -322,7 +340,7 @@
                     if(searchResult[index].Rewards === undefined || String(searchResult[index].Rewards).length < 1){
                         output += '<td>N&#47;A</td>';
                     }else{
-                        output += '<td>'+(searchResult[index].Rewards/1000000)+' $</td>';
+                        output += '<td>$ '+(searchResult[index].Rewards/1000000)+'</td>';
                     }
                     if(searchResult[index].LoanStatus === undefined || String(searchResult[index].LoanStatus).length < 1){
                         output += '<td>N&#47;A</td>';
