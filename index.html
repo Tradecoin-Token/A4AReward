@@ -158,7 +158,7 @@
             var results3 = loanData.filter(entry => entry.value === `${searchDiamond}`);
             
             var results4 = loanData.filter(entry => entry.key.includes("Rewards_Of_")); 
-            console.log(results4);
+            //console.log(results4);
             
             output0 = results0.length;
             output1 = results1.length;
@@ -170,7 +170,7 @@
             for (i = 0; i < results4.length; i++) {  //loop through the array
             sumRewardAmount += results4[i].value;  //Do the math!
             }
-            console.log(sumRewardAmount);
+            //console.log(sumRewardAmount);
             
             sum =output0+output1+output2+output3;
             document.getElementById("panel8").innerHTML = sum+' TIER Alloted <br>'+
