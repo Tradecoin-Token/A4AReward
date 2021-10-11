@@ -88,7 +88,7 @@
                     <div class="card py-3" style="background: #0dbaae;">
                         <div class="card-body text-center h4 text-white" id="panel8"></div>
                     </div>
-                </div>                                
+                </div>
                 
             </div>
         </div>
@@ -149,28 +149,24 @@
             const searchSilver = 'SILVER';
             const searchGold = 'GOLD';
             const searchDiamond = 'DIAMOND';
-            
-            const searchAmount = 'Rewards_Of_3JcDUUX1bGTsamT8GqKnbvG3XrjLk7WhzHp'
-            
+                        
             var results0 = loanData.filter(entry => entry.value === `${searchBronze}`);
             var results1 = loanData.filter(entry => entry.value === `${searchSilver}`);
             var results2 = loanData.filter(entry => entry.value === `${searchGold}`);
             var results3 = loanData.filter(entry => entry.value === `${searchDiamond}`);
             
-            var results4 = loanData.filter(entry => entry.key.includes("Rewards_Of_")); 
-            //console.log(results4);
+            var results4 = loanData.filter(entry => entry.key.includes("Rewards_Of_"));             
             
             output0 = results0.length;
             output1 = results1.length;
             output2 = results2.length;
             output3 = results3.length;
             output4 = results4.length;
-            console.log(output4);
+            
             sumRewardAmount = 0;
             for (i = 0; i < results4.length; i++) {  //loop through the array
             sumRewardAmount += results4[i].value;  //Do the math!
             }
-            //console.log(sumRewardAmount);
             
             sum =output0+output1+output2+output3;
             document.getElementById("panel8").innerHTML = sum+' TIER Alloted <br>'+
@@ -219,8 +215,6 @@
             panel9Data = await panel9ResponseObject.json();
             document.getElementById("panel9").innerHTML = 'Total Staked A4A<br>'+(panel9Data.value/100000000).toFixed(8)+" &#x1F512";
             StakedA4A = panel9Data.value;            
-            
-
             
             loading.remove();
             mainArea.classList.remove('d-none');
@@ -389,12 +383,12 @@
         	const TotalLockBlocks = 1440*days
             const blockinterest = 0.000000036;
             
-            if(amount>=0 && amount <=332.99999999)
+            if(amount>=0 && amount <=76.99999999)
             {
-            alert("Please Enter Amount in Between 333-12000 Only.");
+            alert("Please Enter Amount in Between 77-12000 Only.");
             }
             
-            if(amount>=333 && amount <=999.99999999)
+            if(amount>=77 && amount <=999.99999999)
             {
         	perblockinterest = (blockinterest).toFixed(11);
             Tier ="Bronze"
