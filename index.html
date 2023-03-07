@@ -71,13 +71,20 @@
                         <div class="card-body text-center h4 text-white" id="panel6"></div>
                     </div>
                 </div>
+
+                <div class="col-md-3 col-12 mb-3">
+                    <div class="card py-3" style="background: #0dbaae;">
+                        <div class="card-body text-center h4 text-white" id="panel10"></div>
+                    </div>
+                </div>                
+
                 
                 <div class="col-md-3 col-12 mb-3">
                     <div class="card py-3" style="background: #0dbaae;">
                         <div class="card-body text-center h4 text-white" id="panel7"></div>
                     </div>
                 </div>
-
+                
                 <div class="col-md-3 col-12 mb-3">
                     <div class="card py-3" style="background: #0dbaae;">
                         <div class="card-body text-center h4 text-white" id="panel9"></div>
@@ -210,6 +217,11 @@
             panel7Data = await panel7ResponseObject.json();
             document.getElementById("panel7").innerHTML = 'Total Claimed&#128178;<br>'+(panel7Data.value/1000000).toFixed(6)+" USDT";
             USDTClaimeValueA4A = panel7Data.value;
+            
+            var panel10ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Total_USDC_Claimed%3A");
+            panel10Data = await panel10ResponseObject.json();
+            document.getElementById("panel10").innerHTML = 'Total Claimed&#128178;<br>'+(panel10Data.value/1000000).toFixed(6)+" USDC";
+            USDCClaimeValueA4A = panel10Data.value;            
             
             var panel9ResponseObject = await fetch("https://tnnode.turtlenetwork.eu/addresses/data/3JviWhscNmUduEjTYLBYoPnrf4c8yegPi3P/Staked_Amount");
             panel9Data = await panel9ResponseObject.json();
